@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>opencmsmodule</artifactId>
+	<groupId>de.eonas.portal.parentpoms</groupId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>OpenCmsParentModule</name>
+	<description>Parent Pom.xml for OpenCms Modules</description>
+
+	<parent>
+		<groupId>de.eonas.parent</groupId>
+		<artifactId>root</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	
+	<properties>
+		<!-- Depending OpenCms Version >= 7.5.0 and < 8.0.0 and patched versions. -->
+		<!-- [7.5.0,8.0.0) doesn't work for four digits version -->
+		<opencms.dependingversion>8.0.3.1</opencms.dependingversion>
+	</properties>	
+
+	<build>
+		<defaultGoal>assembly:assembly</defaultGoal>
+		<plugins>
+			<!-- Put the following code into the child pom.xml to activate the assembly 
+				plugin <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+				</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Specification-Title>${project.name}</Specification-Title>
+							<Specification-Version>${project.version}</Specification-Version>
+							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
+							<Implementation-Title>${project.name}</Implementation-Title>
+							<Implementation-Version>${project.version}</Implementation-Version>
+							<Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+							<Implementation-Vendor-Id>de.eonas</Implementation-Vendor-Id>
+							<X-Compile-Source-JDK>${maven.compile.source}</X-Compile-Source-JDK>
+							<X-Compile-Target-JDK>${maven.compile.target}</X-Compile-Target-JDK>
+							<build-time>${maven.build.timestamp}</build-time>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<!-- Since 2.2-beta-3 is a Bug [MASSEMBLY-237] with lineEnding correctedd 
+						http://www.nabble.com/-ANN- -Maven-Assembly-Plugin-2.2-beta-3-Released-td21298644.html 
+						* [MASSEMBLY-236] - assembly:assembly resolves excluded artifacts * [MASSEMBLY-237] 
+						- lineEnding ignored in a child project * [MASSEMBLY-238] - Assembly plugin 
+						removes file permissions - - - - - - - - - - - - - - - be carefull with Winzip!!! 
+						The fucking Winzip changes the lineEnding if you unpack the resulting *.tar.gz 
+						File. Better to use 7-zip.... -->
+					<version>2.2-beta-5</version>
+									<dependencies>
+					<dependency>
+						<groupId>at.infonova.opencms</groupId>
+						<artifactId>opencms-module-assembly</artifactId>
+						<version>1.0-B3</version>
+					</dependency>
+				</dependencies>
+					
+					<executions>
+						<execution>
+							<id>assemble</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+							<configuration>
+								<descriptorRefs>
+									<descriptorRef>opencms-module</descriptorRef>
+								</descriptorRefs>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+
+		<!-- ########################### -->
+		<!-- SCOPE Provided -->
+		<!-- ########################### -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- All Modules depends on opencms-core -->
+		<!-- Already provided in OpenCms-Webapp -->
+		<dependency>
+			<groupId>org.opencms</groupId>
+			<artifactId>opencms-core</artifactId>
+			<version>${opencms.dependingversion}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>infonova-opencms-repo</id>
+			<url>http://bp-cms-commons.sourceforge.net/m2repo</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	
+</project>

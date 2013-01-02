@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.eonas.portal.parentpoms</groupId>
+	<artifactId>portlet</artifactId>
+	<packaging>pom</packaging>
+	<name>Primefaces Portlet Parent Pom</name>
+	<version>1.0-SNAPSHOT</version>
+
+	<parent>
+		<groupId>de.eonas.portal.parentpoms</groupId>
+		<artifactId>webapp</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.1.1</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+						</archive>
+						<webXml>${project.build.directory}/m2e-wtp/web-resources/WEB-INF/web.xml</webXml>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.portals.pluto</groupId>
+					<artifactId>maven-pluto-plugin</artifactId>
+					<version>2.0.3</version>
+					<executions>
+						<execution>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>assemble</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<webXmlDestination>${project.build.directory}/m2e-wtp/web-resources/WEB-INF/web.xml</webXmlDestination>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.0</version>
+		</dependency>
+
+		<!-- Ab hier auskommentieren und es läuft als Servlet -->
+		<dependency>
+			<groupId>org.portletfaces</groupId>
+			<artifactId>portletfaces-bridge</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<!-- Bis hier, is klar, ne? -->
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.jboss.org</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public-jboss</url>
+		</repository>
+		<repository>
+			<id>maven2-repository-portletfaces.org</id>
+			<url>http://repository.portletfaces.org/content/repositories/portletfaces-releases</url>
+		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<description>Used for JSF / primefaces portlets</description>
+</project>
