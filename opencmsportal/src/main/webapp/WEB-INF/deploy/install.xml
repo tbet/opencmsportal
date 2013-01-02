@@ -1,0 +1,59 @@
+<project name="OpenCms Installer" default="all" basedir=".">
+	
+	<property name="tomcat.home" value="/usr/share/tomcat6/" />
+	<property name="opencms.home" value="/var/lib/tomcat6/webapps/ROOT/" />
+
+	<path id="install.classpath">
+		<fileset dir="${opencms.home}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${tomcat.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement path="."/>
+	</path>
+
+	<target name="all">
+	</target>
+
+	<target name="install">
+		<property file="${propfile}" />
+		<java classname="de.eonas.opencms.install.Installer" failonerror="true" fork="yes">
+			<jvmarg value="-Djava.awt.headless=true"/>
+			<arg value="${opencms.home}" />
+			<arg value="${propfile}" />
+			<classpath refid="install.classpath" />
+		</java>
+		<exec executable="chown">
+			<arg value="-R" />
+			<arg value="tomcat" />
+			<arg value="${opencms.home}" />
+		</exec>
+	</target>
+
+	<target name="copy">
+		<property file="${propfile}" />
+		<copy todir="${opencms.home}" overwrite="true" flatten="false">
+			<fileset dir="${opencms.home}">
+				<include name="**/*.TEMPLATE.*" />
+			</fileset>
+			<regexpmapper from="^(.*)\.TEMPLATE(.*)$$" to="\1\2" />
+			<filterchain>
+				<expandproperties />
+			</filterchain>
+		</copy>
+	</target>
+
+	<target name="install_master">
+		<antcall target="install">
+			<param name="propfile" value="instance.properties" />
+			<param name="instance" value="master" />
+		</antcall>
+
+		<antcall target="copy">
+			<param name="propfile" value="instance.properties" />
+			<param name="instance" value="master" />
+		</antcall>
+	</target>
+
+</project>
