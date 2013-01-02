@@ -42,19 +42,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.opencms</groupId>
-            <artifactId>opencms-webapp</artifactId>
-            <version>8.0.3.1</version>
-            <type>war</type>
+            <groupId>de.eonas.portal</groupId>
+            <artifactId>opencmsinstaller</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.opencms</groupId>
-            <artifactId>opencms-setup</artifactId>
-            <version>8.0.3.1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>de.eonas</groupId>
+            <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsportaldriver</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>
@@ -67,6 +60,18 @@
                     <groupId>commons-beanutils</groupId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.opencms</groupId>
+            <artifactId>opencms-webapp</artifactId>
+            <version>8.0.3.1</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.opencms</groupId>
+            <artifactId>opencms-setup</artifactId>
+            <version>8.0.3.1</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.opencms.modules</groupId>
@@ -431,11 +436,6 @@
             <version>${opencms.version}</version>
             <type>zip</type>
             <classifier>opencms-module</classifier>
-        </dependency>
-        <dependency>
-            <groupId>de.eonas</groupId>
-            <artifactId>opencmsinstaller</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>fr.xebia.web</groupId>

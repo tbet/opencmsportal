@@ -5,7 +5,7 @@
 	<artifactId>addons-tomcat</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>rpm</packaging>
-	<name>Tomcat6-Addon fuer zusätzliche Jars (Oracle und so)</name>
+	<name>Tomcat6-Addon (some additions jars required)</name>
 
 	<properties>
 		<tomcat.home>/usr/share/tomcat6</tomcat.home>
@@ -50,63 +50,11 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											rpm-maven-plugin
-										</artifactId>
-										<versionRange>
-											[2.1-alpha-1,)
-										</versionRange>
-										<goals>
-											<goal>version</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 
 	<dependencies>
-	<!--
-		<dependency>
-			<groupId>de.eonas.portal</groupId>
-			<artifactId>ojdbc-6</artifactId>
-			<version>1.0.0</version>
-			<type>jar</type>
-		</dependency>
-		-->
-		<dependency>
-			<groupId>de.eonas.portal</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>14.0.0</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>de.eonas.portal</groupId>
-			<artifactId>orclib</artifactId>
-			<version>0.0.1</version>
-			<type>jar</type>
-		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -139,7 +87,7 @@
 	</dependencies>
 
 	<parent>
-		<groupId>de.eonas.parent</groupId>
+		<groupId>de.eonas.portal.parentpoms</groupId>
 		<artifactId>root</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>

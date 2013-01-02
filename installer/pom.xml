@@ -3,10 +3,10 @@
   <groupId>de.eonas.portal</groupId>
   <artifactId>opencmsinstaller</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Installer für OpenCms</name>
-  <description>Installer für OpenCms</description>
+  <name>Installer for OpenCms</name>
+  <description>Installer for OpenCms</description>
   <parent>
-  	<groupId>de.eonas.parent</groupId>
+  	<groupId>de.eonas.portal.parentpoms</groupId>
   	<artifactId>root</artifactId>
   	<version>1.0-SNAPSHOT</version>
   </parent>
