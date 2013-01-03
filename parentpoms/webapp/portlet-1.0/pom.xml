@@ -48,12 +48,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>de.techem.portal</groupId>
-			<artifactId>portal-commons-helper</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
@@ -72,13 +66,6 @@
 					<groupId>javax.jms</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>de.techem.portal</groupId>
-			<artifactId>statepattern-jsr168v2</artifactId>
-			<version>1.0.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>taglibs</groupId>
@@ -115,18 +102,7 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>de.techem.portal</groupId>
-			<artifactId>portal-commons-heiztec</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>de.techem.portal</groupId>
-			<artifactId>portal-commons-ldap</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
-
 	</dependencies>
 
-	<description>portlet-api 1.0 portlets used in techem Kundenportal</description>
+	<description>portlet-api 1.0 portlets</description>
 </project>
