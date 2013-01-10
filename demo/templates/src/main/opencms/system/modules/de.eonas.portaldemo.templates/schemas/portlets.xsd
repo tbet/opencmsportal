@@ -14,7 +14,8 @@
     <xsd:complexType name="OpenCmsPortlet">
         <xsd:sequence>
             <xsd:element name="Title" type="OpenCmsString"/>
-            <xsd:element name="ID" type="OpenCmsString"/>
+            <xsd:element name="Portlet" type="OpenCmsString"/>
+            <xsd:element name="WindowID" type="OpenCmsString"/>
         </xsd:sequence>
         <xsd:attribute name="language" type="OpenCmsLocale" use="required"/>
     </xsd:complexType>
@@ -24,10 +25,12 @@
 
             <preview uri="${previewtempfile}"/>
             <layouts>
-                <layout element="ID" widget="de.eonas.opencms.portlet.CmsPortletWidget"/>
+                <layout element="Portlet" widget="de.eonas.opencms.portlet.CmsPortletWidget"/>
             </layouts>
             <validationrules/>
-            <defaults/>
+            <defaults>
+                <default element="WindowID" value="1" />
+            </defaults>
             <mappings>
                 <mapping element="Title" mapto="property:Title"/>
                 <mapping element="Title" mapto="urlName"/>

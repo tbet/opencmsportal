@@ -789,21 +789,6 @@
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>system/modules/de.eonas.portaldemo.templates/schemas/portlet.xsd</source>
-			<destination>system/modules/de.eonas.portaldemo.templates/schemas/portlet.xsd</destination>
-			<type>plain</type>
-			<uuidstructure>2d8b6b45-569a-11e2-9980-7f078ec0cbdf</uuidstructure>
-			<uuidresource>2d8b6b46-569a-11e2-9980-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Fri, 04 Jan 2013 12:42:48 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 18:11:36 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
 			<source>system/modules/de.eonas.portaldemo.templates/schemas/portlets.xsd</source>
 			<destination>system/modules/de.eonas.portaldemo.templates/schemas/portlets.xsd</destination>
 			<type>plain</type>
