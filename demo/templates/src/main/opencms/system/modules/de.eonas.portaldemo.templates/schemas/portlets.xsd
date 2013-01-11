@@ -29,6 +29,7 @@
             </layouts>
             <validationrules/>
             <defaults>
+                <default element="Title" value="New Portlet" />
                 <default element="WindowID" value="1" />
             </defaults>
             <mappings>

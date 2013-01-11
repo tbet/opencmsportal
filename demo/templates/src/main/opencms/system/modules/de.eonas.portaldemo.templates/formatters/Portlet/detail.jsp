@@ -1,73 +1,56 @@
-<%@page buffer="none" session="false" taglibs="c,cms" %>
+<%@page buffer="none" session="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="cms" uri="http://www.opencms.org/taglib/cms" %>
+<%@ taglib prefix="portlet" uri="http://eonas.de/portaltaglib" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <cms:formatter var="content" val="value">
 
     <div class="portlet box box_schema3">
         <!-- Portlet -->
+            <%--@elvariable id="value" type="Map<String, Map<String, org.opencms.jsp.util.CmsJspContentAccessValueWrapper>>"--%>
 
-        <c:set var="ID" value="${value.WindowID}"/>
-        <c:set var="Portlet" value="${value.Portlet}"/>
-        <h1>Portlet ${Portlet}${ID}</h1>
-        <%
-            String id = null;
-            Object idobject = pageContext.getAttribute("ID");
-            if (idobject != null) id = idobject.toString();
+        <c:set var="ID">${value.WindowID}</c:set>
+        <c:set var="Portlet">${value.Portlet}</c:set>
+        <c:set var="Title">${value.Title}</c:set>
 
-            String portlet = null;
-            Object portletObject = pageContext.getAttribute("Portlet");
-            if (portletObject != null) portlet = portletObject.toString();
+        <c:choose>
+            <c:when test="${!empty ID and !empty Portlet}">
+                <c:set var="PortletID">${Portlet}${ID}</c:set>
+                <portlet:portlet portletId="${PortletID}">
+                    <!-- Window State Controls -->
+                    <h4>
+                <span style="display: inline-block;">
+                    <portlet:modeDropDown styleClass=""/>
+                </span>
+                        <c:choose>
+                            <c:when test="${fn:length(Title) > 0}">
+                                ${Title}
+                            </c:when>
+                            <c:otherwise>
+                                <portlet:title/>
+                            </c:otherwise>
+                        </c:choose>
 
-            if (id != null && id.length() > 0 && portlet != null && portlet.length() > 0) {
-                de.eonas.website.taglib.PortletTag tag = new de.eonas.website.taglib.PortletTag();
-                tag.setPortletId(portlet + "" + id);
-                tag.setPageContext(pageContext);
-                tag.doStartTag();
-        %>
-        <!-- Window State Controls -->
-        <h4>
-            <%
-                de.eonas.website.taglib.PortletTitleTag title = new de.eonas.website.taglib.PortletTitleTag();
-                title.setPageContext(pageContext);
-                title.setParent(tag);
-                title.doStartTag();
-                title.doEndTag();
+                    </h4>
 
-            %>
+                    <div class="boxbody">
+                        <portlet:render/>
+                    </div>
 
-            <span style="display: inline-block;">
-                        <%
-                de.eonas.website.taglib.PortletModeDropDownTag mode = new de.eonas.website.taglib.PortletModeDropDownTag();
-                mode.setPageContext(pageContext);
-                mode.setParent(tag);
-                mode.setStyleClass("");
-                mode.doStartTag();
-                mode.doEndTag();
-            %>
-            </span>
-        </h4>
-
-        <div class="boxbody">
-            <%
-                de.eonas.website.taglib.PortletRenderTag render = new de.eonas.website.taglib.PortletRenderTag();
-                render.setPageContext(pageContext);
-                render.setParent(tag);
-                render.doStartTag();
-                render.doEndTag();
-            %>
-        </div>
-
-
-        <%
-
-
-                tag.doEndTag();
-
-                pageContext.removeAttribute("javax.servlet.jsp.jstl.fmt.localizationContext.request");
-                pageContext.removeAttribute("javax.servlet.include.servlet_path");
-            }
-        %>
+                </portlet:portlet>
+                <%
+                    pageContext.removeAttribute("javax.servlet.jsp.jstl.fmt.localizationContext.request");
+                    pageContext.removeAttribute("javax.servlet.include.servlet_path");
+                %>
+            </c:when>
+            <c:otherwise>
+                <h4>${Title}</h4>
+                <div class="boxbody">
+                    unconfigured portlet
+                </div>
+            </c:otherwise>
+        </c:choose>
     </div>
 
 </cms:formatter>
