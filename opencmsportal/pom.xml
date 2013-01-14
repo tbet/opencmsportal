@@ -74,6 +74,17 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>de.eonas.portal</groupId>
+            <artifactId>portaltaglib</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>de.eonas.org.opencms</groupId>
             <artifactId>opencms-webapp</artifactId>
             <version>${opencms.version}</version>
