@@ -129,5 +129,11 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.2.9</version>
+        </dependency>
+
     </dependencies>
 </project>
