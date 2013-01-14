@@ -1,0 +1,396 @@
+<f:view
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <style type="text/css">
+        .bold {
+            font-weight: bold;
+        }
+
+        table.dialog {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .photoBox {
+            width: 250px;
+            height: 150px;
+        }
+
+        .width300 {
+            width: 300px;
+        }
+
+        .width500 {
+            width: 500px;
+        }
+
+        .oben {
+            vertical-align: top;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .ui-widget, .ui-dt-c, .ui-paginator {
+            font-size: 12px !important;
+        }
+
+        .ui-datatable table {
+            width: 100%;
+        }
+
+        .marginTop10 {
+            margin-top: 10px;
+        }
+
+        .marginTop20 {
+            margin-top: 20px;
+        }
+
+        .buttonRow button {
+            margin-right: 10px;
+        }
+
+        .floatLeft {
+            float: left;
+        }
+
+        .marginPanel {
+            margin: 5px 5px 5px 5px;
+        }
+
+    </style>
+</h:head>
+<h:body>
+<h:form id="form" enctype="multipart/form-data">
+
+<p:growl id="growl" showDetail="true"/>
+
+<!--@elvariable id="person" type="de.eonas.addressbook.model.Person"-->
+
+<p:dataTable id="personTable" var="person" value="#{viewBean.personList}" paginator="true" rows="5"
+             rowKey="#{person.dn}"
+             paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+             rowsPerPageTemplate="5,10,15" selectionMode="single"
+             selection="#{viewBean.selectedPerson}">
+
+    <p:ajax event="rowSelect" update=":form:dialog :form:growl" oncomplete="personDialog.show()"/>
+    <p:ajax event="rowUnselect" update=":form:growl"/>
+
+    <p:column headerText="Name" sortBy="#{person.cn}" filterBy="#{person.displayName}" styleClass="oben">
+        <h:outputText value="#{person.cn}"/><br/>
+        <h:outputText value="#{person.o}"/><br/>
+        <h:outputText value="#{person.ou}"/>
+    </p:column>
+
+    <p:column headerText="Address" sortBy="#{person.l}" filterBy="#{person.l}" styleClass="oben">
+        <h:outputText value="#{person.postalCode}"/> <h:outputText value=" "/>
+        <h:outputText value="#{person.l}"/><br/>
+        <h:outputText value="#{person.street}"/>
+    </p:column>
+
+    <p:column headerText="Phone" sortBy="#{person.telephoneNumber}"
+              filterBy="#{person.telephoneNumber}" styleClass="oben">
+        Phone: <h:outputText value="#{person.telephoneNumber}"/><br/>
+        Mobile: <h:outputText value="#{person.mobile}"/><br/>
+        Fax: <h:outputText value="#{person.facsimileTelephoneNumber}"/>
+    </p:column>
+
+</p:dataTable>
+
+<div class="buttonRow marginTop10">
+
+    <p:commandButton value="New Entry" icon="ui-icon-circle-plus" update="panelEdit panelView :form:growl"
+                     action="#{viewBean.createEntry}" oncomplete="personDialog.show()"/>
+
+    <p:commandButton value="Reload" icon="ui-icon-arrowrefresh-1-w" update="personTable :form:growl"
+                     action="#{viewBean.refresh}" />
+
+</div>
+
+<p:dialog id="dialog" widgetVar="personDialog"
+          dynamic="true"
+          resizable="false"
+          width="900" showEffect="clip" hideEffect="fold">
+
+<p:ajax event="close" listener="#{viewBean.switchToView}"/>
+
+<p:panel id="panelView" styleClass="marginPanel" visible="#{!viewBean.editMode}">
+
+    <p:messages id="messagesView" showDetail="true" autoUpdate="true"/>
+
+    <div>
+        <p:panelGrid id="person" styleClass="dialog width500 floatLeft">
+
+            <p:row>
+                <p:column>
+                    <p:graphicImage value="#{viewBean.jpegPhotoStream}" width="128px"/>
+                </p:column>
+                <p:column styleClass="oben">
+                    <h:outputText value="Name: "/><br/>
+                    <h:outputText value="Title: "/>
+                </p:column>
+                <p:column styleClass="oben bold">
+                    <h:outputText value="#{viewBean.selectedPerson.cn}"/><br/>
+                    <h:outputText value="#{viewBean.selectedPerson.title}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Organisation: </p:column>
+                <p:column colspan="2" styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.o}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Department: </p:column>
+                <p:column colspan="2" styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.ou}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Street: </p:column>
+                <p:column colspan="2" styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.street}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column colspan="3"/>
+            </p:row>
+
+            <p:row>
+                <p:column>City: </p:column>
+                <p:column colspan="2" styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.postalCode}"/>
+                    <h:outputText value=" "/>
+                    <h:outputText value="#{viewBean.selectedPerson.l}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Country: </p:column>
+                <p:column colspan="2" styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.c}"/>
+                </p:column>
+            </p:row>
+
+        </p:panelGrid>
+        <p:panelGrid styleClass="dialog width300">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="3">Phone Numbers</p:column>
+                </p:row>
+            </f:facet>
+            <p:row>
+                <p:column>Telephone: </p:column>
+                <p:column styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.telephoneNumber}"/>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>Mobile: </p:column>
+                <p:column styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.mobile}"/>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>Fax: </p:column>
+                <p:column styleClass="bold">
+                    <h:outputText value="#{viewBean.selectedPerson.facsimileTelephoneNumber}"/>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+        <p:panelGrid styleClass="dialog width300">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="3">Email &amp; Internet
+                    </p:column>
+                </p:row>
+            </f:facet>
+            <p:row>
+                <p:column>
+                    Email:
+                </p:column>
+                <p:column styleClass="bold">
+                    <a href="mailto:#{viewBean.selectedPerson.mail}">
+                        <h:outputText value="#{viewBean.selectedPerson.mail}"/>
+                    </a>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                    Web:
+                </p:column>
+                <p:column styleClass="bold">
+                    <a href="#{viewBean.selectedPerson.labeledURI}">
+                        <h:outputText value="#{viewBean.selectedPerson.labeledURI}"/>
+                    </a>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+    </div>
+
+    <div style="clear: left;" class="buttonRow">
+
+        <p:commandButton id="edit" value="Edit" icon="ui-icon-pencil" update="panelView panelEdit :form:growl"
+                         action="#{viewBean.switchToEdit}"/>
+        <p:commandButton id="delete" value="Delete" icon="ui-icon-trash" update="panelEdit panelView :form:growl"
+                         action="#{viewBean.deleteEntry}" disabled="#{viewBean.selectedPerson.dn == null}"/>
+        <p:commandButton id="close" value="Close" icon="ui-icon-close" action="#{viewBean.switchToView}"
+                         onclick="personDialog.hide()"/>
+
+    </div>
+</p:panel>
+
+<p:panel id="panelEdit" styleClass="marginPanel" visible="#{viewBean.editMode}">
+
+    <p:messages id="messages" showDetail="true" autoUpdate="true"/>
+
+    <div>
+        <p:panelGrid styleClass="dialog width500 floatLeft">
+            <p:row>
+                <p:column styleClass="photoBox">
+                    <p:column>
+                        <p:graphicImage id="photo" value="#{viewBean.jpegPhotoStreamEdit}" width="128px"/>
+                    </p:column>
+                </p:column>
+                <p:column styleClass="oben">
+                    <h:outputText value="Name: "/><br/>
+                    <h:outputText value="Givenname: "/><br/>
+                    <h:outputText value="Title: "/>
+                </p:column>
+                <p:column styleClass="oben">
+                    <p:inputText value="#{viewBean.editPerson.sn}" label="Surname"
+                                 title="Surname"/><br/>
+                    <p:inputText value="#{viewBean.editPerson.givenName}"
+                                 label="Givenname" title="Givenname"/>
+                    <p:inputText value="#{viewBean.editPerson.title}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Organisation: </p:column>
+                <p:column colspan="2">
+                    <p:inputText value="#{viewBean.editPerson.o}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Department: </p:column>
+                <p:column colspan="2">
+                    <p:inputText value="#{viewBean.editPerson.ou}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Street: </p:column>
+                <p:column colspan="2">
+                    <p:inputText value="#{viewBean.editPerson.street}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column colspan="3"/>
+            </p:row>
+
+            <p:row>
+                <p:column>City: </p:column>
+                <p:column colspan="2">
+                    <p:inputText value="#{viewBean.editPerson.postalCode}"/>
+                    <h:outputText value=" "/>
+                    <p:inputText value="#{viewBean.editPerson.l}"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Country: </p:column>
+                <p:column colspan="2">
+                    <p:inputText value="#{viewBean.editPerson.c}"/>
+                </p:column>
+            </p:row>
+
+        </p:panelGrid>
+        <p:panelGrid styleClass="dialog width300">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="3">Phone Numbers</p:column>
+                </p:row>
+            </f:facet>
+            <p:row>
+                <p:column>Telephone: </p:column>
+                <p:column>
+                    <p:inputText value="#{viewBean.editPerson.telephoneNumber}"/>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>Mobile: </p:column>
+                <p:column>
+                    <p:inputText value="#{viewBean.editPerson.mobile}"/>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>Fax: </p:column>
+                <p:column>
+                    <p:inputText value="#{viewBean.editPerson.facsimileTelephoneNumber}"/>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+        <p:panelGrid styleClass="dialog width300">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="3">Email &amp; Internet
+                    </p:column>
+                </p:row>
+            </f:facet>
+            <p:row>
+                <p:column>
+                    Email:
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{viewBean.editPerson.mail}"/>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                    Web:
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{viewBean.editPerson.labeledURI}"/>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+    </div>
+
+    <div style="clear: left;" class="buttonRow">
+
+        <p:commandButton value="Save" icon="ui-icon-disk" update="personTable panelEdit panelView :form:growl"
+                         action="#{viewBean.savePerson}"/>
+        <p:commandButton value="Cancel" icon="ui-icon-close" update="panelEdit panelView :form:growl"
+                         action="#{viewBean.switchToView}" disabled="#{viewBean.editPerson.dn == null}"/>
+        <p:commandButton value="Remove Picture" icon="ui-icon-trash" update="panelEdit panelView :form:growl"
+                         action="#{viewBean.deletePic}" disabled="#{empty viewBean.editPerson.jpegPhoto}"/>
+
+    </div>
+
+    <p:fileUpload styleClass="marginTop20" fileUploadListener="#{viewBean.handleFileUpload}"
+                  mode="advanced"
+                  update="messages,photo"
+                  sizeLimit="100000"
+                  multiple="false"
+                  auto="true"
+                  showButtons="false"
+                  dragDropSupport="true"
+                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+</p:panel>
+
+</p:dialog>
+</h:form>
+</h:body>
+</f:view>

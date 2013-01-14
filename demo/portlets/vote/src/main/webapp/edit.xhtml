@@ -1,0 +1,37 @@
+<f:view
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+            h3 {
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 1.1em;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <h3>Select a question</h3>
+
+            <p:growl id="messages" showDetail="true" autoUpdate="true"/>
+
+            <p:dataTable rowKey="#{question.id}" id="dataTable" var="question" value="#{voteController.allQuestions}"
+                         paginator="true" rows="10"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" selectionMode="single"
+                         selection="#{voteController.settings.question}">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Question Text"/>
+                    </f:facet>
+                    <h:outputText value="#{question.text}"/>
+                </p:column>
+            </p:dataTable>
+
+            <p:commandButton actionListener="#{voteController.saveSettings}" value="Save" style="margin-top: 10px;" update="form"/>
+
+        </h:form>
+
+    </h:body>
+</f:view>

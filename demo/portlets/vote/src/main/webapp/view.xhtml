@@ -1,0 +1,48 @@
+<f:view
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <style>
+            h3 {
+                font-family: Verdana, Arial, sans-serif;
+                font-size: 1.1em;
+            }
+
+            .marginTop {
+                margin-top: 20px;
+            }
+
+            .top {
+                vertical-align: top;
+            }
+        </style>
+    </h:head>
+    <h:body>
+
+        <p:outputPanel rendered="#{!voteController.defaultValues}">
+            <h:form id="form">
+                <h3>ASD <h:outputText value="#{voteController.settings.question.text}"/></h3>
+
+                <p:growl id="messages" showDetail="true"/>
+
+                <div class="marginTop">
+                    <h:outputLabel styleClass="top" for="option" value="#{voteController.settings.question.optionText}: "/>
+                    <p:selectOneMenu id="option" value="#{voteController.selectOptionId}" required="true" >
+                        <f:selectItem itemLabel="Select One" itemValue=""/>
+                        <f:selectItems value="#{voteController.settings.question.optionList}" var="option"
+                                       itemLabel="#{option.text}" itemValue="#{option.id}"/>
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="marginTop">
+                    <p:commandButton value="Vote!" action="#{voteController.saveAnswer}" icon="ui-icon-disk" update="form"/>
+                </div>
+
+            </h:form>
+        </p:outputPanel>
+
+        <h:outputText value="Please configure a question first!" rendered="#{voteController.defaultValues}"/>
+
+    </h:body>
+</f:view>
