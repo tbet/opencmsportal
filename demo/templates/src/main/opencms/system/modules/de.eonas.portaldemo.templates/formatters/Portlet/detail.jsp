@@ -20,9 +20,9 @@
                 <portlet:portlet portletId="${PortletID}">
                     <!-- Window State Controls -->
                     <h4>
-                <span style="display: inline-block;">
-                    <portlet:modeDropDown styleClass=""/>
-                </span>
+                        <span style="display: inline-block;">
+                            <portlet:modeDropDown styleClass=""/>
+                        </span>
                         <c:choose>
                             <c:when test="${fn:length(Title) > 0}">
                                 ${Title}
@@ -46,6 +46,7 @@
             </c:when>
             <c:otherwise>
                 <h4>${Title}</h4>
+
                 <div class="boxbody">
                     unconfigured portlet
                 </div>
