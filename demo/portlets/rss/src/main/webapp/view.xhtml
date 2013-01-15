@@ -18,15 +18,16 @@
             <p:growl id="messages" showDetail="true"/>
             <!--@elvariable id="entry" type="com.sun.syndication.feed.synd.SyndEntry"-->
 
-            <p:accordionPanel id="list" var="entry" value="#{rssController.feed.entries}">
+            <p:accordionPanel id="list" var="entry" value="#{rssController.list}" >
 
-                <p:tab id="entry" title="#{fn:stripHtml(entry.title)}" >
+                <p:tab id="entry" title="#{fn:stripHtml(entry.title)}">
                     <h:outputText value="#{entry.title}" escape="false"/> / <h:outputText value="#{entry.updatedDate}" />
 
                     <ui:repeat var="content" value="#{entry.contents}">
                         <h:outputText value="#{content.value}" escape="false"/>
                     </ui:repeat>
                 </p:tab>
+
             </p:accordionPanel>
         </h:form>
 

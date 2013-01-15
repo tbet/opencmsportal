@@ -15,6 +15,20 @@ public class Dao {
     @PersistenceContext(unitName = "Settings")
     EntityManager em;
 
+
+    public void insertDemoDataTransacted () {
+        RssSettings s = new RssSettings();
+        s.setPortletId("rss.rss!1");
+        s.setUrl("http://www.heise.de/newsticker/heise-atom.xml");
+        s.setUsername("Guest");
+        s.setBasicAuth(false);
+        em.merge(s);
+
+        s.setUsername("Admin");
+        em.merge(s);
+    }
+
+
     @Nullable
     public RssSettings fetchSettings ( String username, String portletId ) {
         TypedQuery<RssSettings> query = em.createQuery("select a from RssSettings a where a.username = :name and a.portletId = :portletId", RssSettings.class);

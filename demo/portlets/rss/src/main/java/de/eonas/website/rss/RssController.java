@@ -22,6 +22,7 @@ import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 
 @ManagedBean
 @SessionScoped
@@ -36,6 +37,7 @@ public class RssController implements Serializable {
     private boolean feedLoaded;
     private String windowId;
     private static Logger logger = LoggerFactory.getLogger(RssController.class);
+    private List list;
 
     public RssController() {
         ctx = FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
@@ -80,6 +82,10 @@ public class RssController implements Serializable {
             }
             reader = new XmlReader(urlConnection);
             feed = new SyndFeedInput().build(reader);
+            list = feed.getEntries();
+            if ( list != null && list.size() > 10) {
+                list = list.subList(0, 10);
+            }
         } finally {
             if (reader != null) {
                 try {
@@ -156,4 +162,11 @@ public class RssController implements Serializable {
         this.feedLoaded = feedLoaded;
     }
 
+    public List getList() {
+        return list;
+    }
+
+    public void setList(List list) {
+        this.list = list;
+    }
 }
