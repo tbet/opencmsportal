@@ -21,31 +21,29 @@
 				<executions>
 					<execution>
 						<configuration>
+                            <copyright>2012, eonas GmbH</copyright>
+                            <group>Development</group>
+                            <description>Additional Jars for RHEL6 Tomcat6</description>
+                            <requires>
+                                <require>tomcat6</require>
+                            </requires>
+                            <mappings>
+                                <mapping>
+                                    <dependency />
+                                    <directory>${tomcat.home}/lib</directory>
+                                    <directoryIncluded>false</directoryIncluded>
+                                </mapping>
+                            </mappings>
+                            <keyname>Hudson Build Host</keyname>
+                            <keyPassphrase>
+                                <passphrase>123456</passphrase>
+                            </keyPassphrase>
 						</configuration>
 						<goals>
 							<goal>rpm</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<copyright>2012, eonas GmbH</copyright>
-					<group>Development</group>
-					<description>Additional Jars for RHEL6 Tomcat6</description>
-					<requires>
-						<require>tomcat6</require>
-					</requires>
-					<mappings>
-						<mapping>
-							<dependency />
-							<directory>${tomcat.home}/lib</directory>
-							<directoryIncluded>false</directoryIncluded>
-						</mapping>
-					</mappings>
-					<keyname>Hudson Build Host</keyname>
-					<keyPassphrase>
-						<passphrase>123456</passphrase>
-					</keyPassphrase>
-				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>
