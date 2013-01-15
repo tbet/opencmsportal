@@ -38,7 +38,9 @@ public class Dao<T extends LdapSelectableData> {
         //EntityType<T> et = m.entity(clazz);
         Root<T> all = cq.from(clazz);
 
-        if (filters != null) {
+        //noinspection PointlessBooleanExpression
+        if (false && filters != null) {
+            // untested !!!
             for (String filter : filters.keySet()) {
                 String value = filters.get(filter);
                 final Path<String> objectPath = all.get(filter);
@@ -46,7 +48,9 @@ public class Dao<T extends LdapSelectableData> {
             }
         }
 
-        if (sortField != null) {
+        //noinspection PointlessBooleanExpression
+        if (false && sortField != null) {
+            // untested !!!
             Order order;
             final Path<String> stringPath = all.get(sortField);
             if ( SortOrder.ASCENDING == sortOrder) {
