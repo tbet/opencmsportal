@@ -23,8 +23,6 @@
 				<extensions>true</extensions>
 				<executions>
 					<execution>
-						<configuration>
-						</configuration>
 						<goals>
 							<goal>rpm</goal>
 						</goals>
