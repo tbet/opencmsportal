@@ -4,7 +4,7 @@
 	<groupId>de.eonas.portal</groupId>
 	<artifactId>pluto-tomcat</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>rpm</packaging>
+	<packaging>jar</packaging>
 	<name>Tomcat6-Addon fuer Pluto-Support</name>
 
 	<properties>
@@ -16,6 +16,42 @@
 
 	<build>
 		<plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>getandunpack</id>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <target>
+                                <get src="http://apache.lauf-forum.at/tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.zip" dest="target"/>
+                                <unzip src="target/apache-tomcat-6.0.36.zip" dest="target"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/src.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>rpm-maven-plugin</artifactId>
