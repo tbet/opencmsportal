@@ -3,13 +3,21 @@ package de.eonas.addressbook.model;
 import de.eonas.addressbook.genericmodel.LdapSelectableData;
 import org.jetbrains.annotations.Nullable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 @SuppressWarnings("UnusedDeclaration")
+@Entity
 public class Person implements LdapSelectableData, Cloneable, Serializable {
+    @Id
+    //@GeneratedValue
     String dn;
+    @Transient
     String[] objectClass;
     String structuralObjectClass;
     String entryUUID;
@@ -38,35 +46,35 @@ public class Person implements LdapSelectableData, Cloneable, Serializable {
     byte[] jpegPhoto;
 
     @Nullable
-    static String cleanAndTrim( @Nullable String in ) {
-        if ( in == null ) return in;
+    static String cleanAndTrim(@Nullable String in) {
+        if (in == null) return in;
         in = in.trim();
-        if ( in.length() == 0 ) return null;
+        if (in.length() == 0) return null;
         return in;
     }
 
     private void rebuildCn() {
-        if ( sn == null ) {
+        if (sn == null) {
             setCn(givenName);
             return;
         }
-        if ( givenName == null ) {
+        if (givenName == null) {
             setCn(sn);
             return;
         }
-        setCn( givenName + " " + sn);
+        setCn(givenName + " " + sn);
     }
 
     private void rebuildDisplayName() {
-        if ( o == null ) {
+        if (o == null) {
             setDisplayName(cn);
             return;
         }
-        if ( cn == null ) {
+        if (cn == null) {
             setDisplayName(o);
             return;
         }
-        setDisplayName( o + ": " + cn);
+        setDisplayName(o + ": " + cn);
     }
 
     public String getCn() {
@@ -149,7 +157,6 @@ public class Person implements LdapSelectableData, Cloneable, Serializable {
     }
 
 
-
     public String getL() {
         return l;
     }
@@ -164,12 +171,11 @@ public class Person implements LdapSelectableData, Cloneable, Serializable {
 
     public void setLabeledURI(String labeledURI) {
         labeledURI = cleanAndTrim(labeledURI);
-        if ( labeledURI != null ) {
+        if (labeledURI != null) {
             try {
                 new URL(labeledURI);
                 this.labeledURI = labeledURI;
-            }
-            catch ( MalformedURLException ex ) {
+            } catch (MalformedURLException ex) {
                 this.labeledURI = "http://" + labeledURI;
             }
         }

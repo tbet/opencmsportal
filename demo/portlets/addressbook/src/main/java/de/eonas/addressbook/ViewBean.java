@@ -1,7 +1,8 @@
 package de.eonas.addressbook;
 
+import de.eonas.addressbook.genericmodel.LazyHibernateDataModel;
 import de.eonas.addressbook.genericmodel.LazyLdapDataModel;
-import de.eonas.addressbook.model.I_LazyLdapDataModel;
+import de.eonas.addressbook.model.LazyDataModel;
 import de.eonas.addressbook.model.Person;
 import org.jetbrains.annotations.NotNull;
 import org.primefaces.event.FileUploadEvent;
@@ -9,6 +10,8 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.UploadedFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.jsf.FacesContextUtils;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -34,6 +37,7 @@ public class ViewBean implements Serializable {
     private Person selectedPerson;
     private Person editPerson;
     private boolean editMode;
+    private List filteredValue;
 
     public ViewBean() throws NamingException {
         refresh();
@@ -81,16 +85,28 @@ public class ViewBean implements Serializable {
     }
 
     public void refresh() {
-        I_LazyLdapDataModel<Person> lazyModel = new LazyLdapDataModel<Person>(Person.class, "inetOrgPerson");
+        LazyDataModel<Person> lazyModel = getModel();
         this.personList = lazyModel.load();
         this.editMode = false;
         this.editPerson = new Person();
     }
 
+    private LazyDataModel<Person> getModel() {
+        //noinspection ConstantIfStatement
+        if ( false ) {
+            return new LazyLdapDataModel<Person>(Person.class, "inetOrgPerson");
+        } else {
+            WebApplicationContext springContext = FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
+            @SuppressWarnings("unchecked") Dao<Person> dao = springContext.getBean(Dao.class); // attention: type erasure
+            dao.setClazz(Person.class); // take care!!
+            return new LazyHibernateDataModel<Person>(Person.class, dao);
+        }
+    }
+
     public void savePerson() {
         LOG.info("Saving " + editPerson.getCn());
 
-        I_LazyLdapDataModel<Person> lazyModel = new LazyLdapDataModel<Person>(Person.class, "inetOrgPerson");
+        LazyDataModel<Person> lazyModel = getModel();
         lazyModel.save(editPerson);
         selectedPerson = editPerson;
 
@@ -178,6 +194,13 @@ public class ViewBean implements Serializable {
         return new DefaultStreamedContent(new ByteArrayInputStream(jpegPhoto), "image/jpeg", "logo.jpg");
     }
 
+    public List getFilteredValue() {
+        return filteredValue;
+    }
+
+    public void setFilteredValue(List filteredValue) {
+        this.filteredValue = filteredValue;
+    }
 
 
 }

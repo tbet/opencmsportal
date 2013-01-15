@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public interface I_LazyLdapDataModel<T extends LdapSelectableData> extends SelectableDataModel<T>,Serializable {
+public interface LazyDataModel<T extends LdapSelectableData> extends SelectableDataModel<T>,Serializable {
     @NotNull
     List<T> load();
 

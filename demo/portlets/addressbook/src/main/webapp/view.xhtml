@@ -75,7 +75,9 @@
              rowKey="#{person.dn}"
              paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
              rowsPerPageTemplate="5,10,15" selectionMode="single"
-             selection="#{viewBean.selectedPerson}">
+             selection="#{viewBean.selectedPerson}"
+             filteredValue="#{viewBean.filteredValue}"
+            >
 
     <p:ajax event="rowSelect" update=":form:dialog :form:growl" oncomplete="personDialog.show()"/>
     <p:ajax event="rowUnselect" update=":form:growl"/>

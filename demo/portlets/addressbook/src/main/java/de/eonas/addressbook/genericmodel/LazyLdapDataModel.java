@@ -1,10 +1,9 @@
 package de.eonas.addressbook.genericmodel;
 
-import de.eonas.addressbook.model.I_LazyLdapDataModel;
+import de.eonas.addressbook.model.LazyDataModel;
 import org.apache.commons.beanutils.BeanUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 
-public class LazyLdapDataModel<T extends LdapSelectableData> extends LazyDataModel<T> implements I_LazyLdapDataModel<T> {
+public class LazyLdapDataModel<T extends LdapSelectableData> extends org.primefaces.model.LazyDataModel<T> implements LazyDataModel<T> {
 
     private static final String LDAP_CONTEXT = "ldap://ldap.office.eonas.de:389/ou=people,dc=eonas,dc=de";
     private static final String LDAP_DN = "uid=egroupware,ou=DSA,dc=eonas,dc=de";
