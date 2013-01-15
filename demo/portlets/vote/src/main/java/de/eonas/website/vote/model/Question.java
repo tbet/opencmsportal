@@ -1,7 +1,7 @@
 package de.eonas.website.vote.model;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 public class Question {
@@ -13,23 +13,25 @@ public class Question {
     String optionText;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    List<Option> optionList;
+    Collection<Option> optionList;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    List<Answer> answerList;
+    Collection<Answer> answerList;
 
-    public List<Option> getOptionList() {
+    public Collection<Option> getOptionList() {
         return optionList;
     }
 
-    public void setOptionList(List<Option> optionList) {
+    public void setOptionList(Collection<Option> optionList) {
         this.optionList = optionList;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public long getId() {
         return id;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public void setId(long id) {
         this.id = id;
     }
@@ -42,11 +44,11 @@ public class Question {
         this.text = text;
     }
 
-    public List<Answer> getAnswerList() {
+    public Collection<Answer> getAnswerList() {
         return answerList;
     }
 
-    public void setAnswerList(List<Answer> answerList) {
+    public void setAnswerList(Collection<Answer> answerList) {
         this.answerList = answerList;
     }
 

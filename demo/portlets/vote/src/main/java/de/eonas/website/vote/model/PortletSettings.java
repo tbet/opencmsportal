@@ -1,8 +1,9 @@
 package de.eonas.website.vote.model;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Entity
@@ -14,6 +15,7 @@ public class PortletSettings implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     Question question;
 
+    @SuppressWarnings("UnusedDeclaration")
     public String getPortletId() {
         return portletId;
     }

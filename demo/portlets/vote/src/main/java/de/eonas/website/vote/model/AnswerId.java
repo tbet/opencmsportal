@@ -13,10 +13,7 @@ public class AnswerId implements Serializable {
 
         AnswerId answerId = (AnswerId) o;
 
-        if (!question.equals(answerId.question)) return false;
-        if (!username.equals(answerId.username)) return false;
-
-        return true;
+        return question.equals(answerId.question) && username.equals(answerId.username);
     }
 
     @Override

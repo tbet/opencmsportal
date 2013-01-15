@@ -15,6 +15,7 @@ public class Answer {
     @ManyToOne
     Option option;
 
+    @SuppressWarnings("UnusedDeclaration")
     public Option getOption() {
         return option;
     }
@@ -23,6 +24,7 @@ public class Answer {
         this.option = option;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public Question getQuestion() {
         return question;
     }
@@ -31,6 +33,7 @@ public class Answer {
         this.question = question;
     }
 
+    @SuppressWarnings("UnusedDeclaration")
     public String getUsername() {
         return username;
     }

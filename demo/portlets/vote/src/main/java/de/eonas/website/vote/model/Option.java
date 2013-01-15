@@ -1,18 +1,20 @@
 package de.eonas.website.vote.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Option {
     @Id @GeneratedValue
     long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Question question;
+
     String text;
+
+    @OneToMany(mappedBy = "option", cascade = CascadeType.ALL)
+    private Collection<Answer> answer;
 
     public long getId() {
         return id;
@@ -36,5 +38,13 @@ public class Option {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Collection<Answer> getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Collection<Answer> answer) {
+        this.answer = answer;
     }
 }
