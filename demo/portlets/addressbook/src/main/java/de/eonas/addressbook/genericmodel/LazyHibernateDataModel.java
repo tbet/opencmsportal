@@ -44,6 +44,7 @@ public class LazyHibernateDataModel<T extends LdapSelectableData> extends org.pr
         dao.save(object);
     }
 
+    @NotNull
     @Override
     public List load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
         return dao.load(first, pageSize, sortField, sortOrder, filters);
