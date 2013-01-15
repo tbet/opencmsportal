@@ -43,6 +43,12 @@
             <type>zip</type>
             <classifier>opencms-module</classifier>
         </dependency>
+        <dependency>
+            <groupId>de.eonas.portal</groupId>
+            <artifactId>opencmsportal</artifactId>
+            <version>8.5.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
     </dependencies>
 
 </project>
