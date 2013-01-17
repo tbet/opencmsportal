@@ -3,8 +3,8 @@
 <export>
 	<info>
 		<creator>Admin</creator>
-		<opencms_version>8.0.3</opencms_version>
-		<createdate>Tue, 08 Jan 2013 14:57:23 GMT</createdate>
+		<opencms_version>8.5.0</opencms_version>
+		<createdate>Thu, 17 Jan 2013 14:59:41 GMT</createdate>
 		<infoproject>Offline</infoproject>
 		<export_version>7</export_version>
 	</info>
@@ -12,76 +12,120 @@
 		<name>de.eonas.portaldemo.content</name>
 		<nicename><![CDATA[Demo Portal Content]]></nicename>
 		<class/>
-		<description/>
-		<version>0.2</version>
+		<description><![CDATA[Demo Portal Content]]></description>
+		<version>0.3</version>
 		<authorname><![CDATA[Helmut Manck]]></authorname>
 		<authoremail><![CDATA[helmut.manck@eonas.de]]></authoremail>
 		<datecreated/>
 		<userinstalled/>
 		<dateinstalled/>
-		<dependencies/>
+		<dependencies>
+			<dependency name="de.eonas.portaldemo.templates" version="0"/>
+		</dependencies>
 		<exportpoints/>
 		<resources>
-			<resource uri="/sites/default/"/>
+			<resource uri="/portal-en/"/>
 		</resources>
 		<parameters/>
 	</module>
 	<files>
 		<file>
-			<destination>sites</destination>
-			<type>folder</type>
-			<uuidstructure>a212beb7-5686-11e2-91ce-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 15:51:41 GMT</datelastmodified>
+			<destination>portal-en</destination>
+			<type>subsitemap</type>
+			<uuidstructure>f551c9df-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<datelastmodified>Thu, 17 Jan 2013 14:06:43 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 15:51:41 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default</destination>
-			<type>folder</type>
-			<uuidstructure>a213d029-5686-11e2-91ce-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Sat, 05 Jan 2013 17:41:25 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 15:51:41 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:05:33 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties>
 				<property>
+					<name>NavPos</name>
+					<value><![CDATA[12.0]]></value>
+				</property>
+				<property>
+					<name>NavText</name>
+					<value><![CDATA[Portal Demo [English]]]></value>
+				</property>
+				<property>
+					<name>Title</name>
+					<value><![CDATA[OpenCms 8 Portal Demo [en]]]></value>
+				</property>
+				<property>
+					<name>default-file</name>
+					<value><![CDATA[##navigation_level_folder##]]></value>
+				</property>
+				<property>
 					<name>template</name>
-					<value><![CDATA[/system/modules/de.eonas.portaldemo.templates/templates/Einspaltig.jsp]]></value>
+					<value><![CDATA[/system/modules/com.alkacon.opencms.v8.template3/templates/main.jsp]]></value>
 				</property>
 			</properties>
 			<relations/>
-			<accesscontrol>
-				<accessentry>
-					<uuidprincipal>GROUP.Users</uuidprincipal>
-					<flags>34</flags>
-					<permissionset>
-						<allowed>7</allowed>
-						<denied>0</denied>
-					</permissionset>
-				</accessentry>
-			</accesscontrol>
+			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/index.html</source>
-			<destination>sites/default/index.html</destination>
-			<type>htmlredirect</type>
-			<uuidstructure>53d4f154-575f-11e2-956f-7f078ec0cbdf</uuidstructure>
-			<uuidresource>53d4f155-575f-11e2-956f-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Sat, 05 Jan 2013 17:43:05 GMT</datelastmodified>
+			<source>portal-en/.inherited</source>
+			<destination>portal-en/.inherited</destination>
+			<type>inheritance_config</type>
+			<uuidstructure>f93b86f0-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f93b86f1-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Fri, 21 Sep 2012 17:48:29 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Sat, 05 Jan 2013 17:42:51 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:05:39 GMT</datecreated>
+			<usercreated>Admin</usercreated>
+			<flags>512</flags>
+			<properties>
+				<property>
+					<name>search.exclude</name>
+					<value><![CDATA[true]]></value>
+				</property>
+			</properties>
+			<relations/>
+			<accesscontrol/>
+		</file>
+		<file>
+			<source>portal-en/.inherited_default.html</source>
+			<destination>portal-en/.inherited_default.html</destination>
+			<type>containerpage</type>
+			<uuidstructure>f95884d3-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f95884d4-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Wed, 19 Sep 2012 12:31:51 GMT</datelastmodified>
+			<userlastmodified>Admin</userlastmodified>
+			<datecreated>Thu, 17 Jan 2013 14:05:39 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties>
 				<property>
 					<name>Title</name>
-					<value><![CDATA[index]]></value>
+					<value><![CDATA[Page to configure inheritance groups]]></value>
+				</property>
+				<property>
+					<name>search.exclude</name>
+					<value><![CDATA[true]]></value>
+				</property>
+			</properties>
+			<relations/>
+			<accesscontrol/>
+		</file>
+		<file>
+			<source>portal-en/index.html</source>
+			<destination>portal-en/index.html</destination>
+			<type>htmlredirect</type>
+			<uuidstructure>f97b2807-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f97b2808-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Fri, 21 Sep 2012 17:42:58 GMT</datelastmodified>
+			<userlastmodified>Admin</userlastmodified>
+			<datecreated>Thu, 17 Jan 2013 14:05:40 GMT</datecreated>
+			<usercreated>Admin</usercreated>
+			<flags>0</flags>
+			<properties>
+				<property>
+					<name>Title</name>
+					<value><![CDATA[Redirect to start page]]></value>
+				</property>
+				<property>
+					<name>search.exclude</name>
+					<value><![CDATA[true]]></value>
 				</property>
 				<property type="shared">
 					<name>template-elements</name>
@@ -92,12 +136,84 @@
 			<accesscontrol/>
 		</file>
 		<file>
-			<destination>sites/default/.content</destination>
-			<type>content_folder</type>
-			<uuidstructure>46064b79-56ab-11e2-9980-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:13:58 GMT</datelastmodified>
+			<source>portal-en/robots.txt</source>
+			<destination>portal-en/robots.txt</destination>
+			<type>seo_file</type>
+			<uuidstructure>f994f19c-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f994f19d-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Fri, 21 Sep 2012 17:44:48 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:13:58 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:05:40 GMT</datecreated>
+			<usercreated>Admin</usercreated>
+			<flags>0</flags>
+			<properties>
+				<property>
+					<name>Title</name>
+					<value><![CDATA[SEO robots]]></value>
+				</property>
+				<property>
+					<name>locale</name>
+					<value><![CDATA[en]]></value>
+				</property>
+				<property>
+					<name>locale-available</name>
+					<value><![CDATA[en]]></value>
+				</property>
+				<property>
+					<name>search.exclude</name>
+					<value><![CDATA[true]]></value>
+				</property>
+				<property type="shared">
+					<name>template-elements</name>
+					<value><![CDATA[/system/modules/org.opencms.ade.sitemap/pages/render-seo-file.jsp]]></value>
+				</property>
+			</properties>
+			<relations/>
+			<accesscontrol/>
+		</file>
+		<file>
+			<source>portal-en/sitemap.xml</source>
+			<destination>portal-en/sitemap.xml</destination>
+			<type>seo_file</type>
+			<uuidstructure>f9af0953-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f9af0954-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Fri, 21 Sep 2012 17:44:40 GMT</datelastmodified>
+			<userlastmodified>Admin</userlastmodified>
+			<datecreated>Thu, 17 Jan 2013 14:05:40 GMT</datecreated>
+			<usercreated>Admin</usercreated>
+			<flags>0</flags>
+			<properties>
+				<property>
+					<name>Title</name>
+					<value><![CDATA[SEO Sitemap]]></value>
+				</property>
+				<property>
+					<name>locale</name>
+					<value><![CDATA[en]]></value>
+				</property>
+				<property>
+					<name>locale-available</name>
+					<value><![CDATA[en]]></value>
+				</property>
+				<property>
+					<name>search.exclude</name>
+					<value><![CDATA[true]]></value>
+				</property>
+				<property type="shared">
+					<name>template-elements</name>
+					<value><![CDATA[/system/modules/org.opencms.ade.sitemap/pages/render-seo-file.jsp]]></value>
+				</property>
+			</properties>
+			<relations/>
+			<accesscontrol/>
+		</file>
+		<file>
+			<destination>portal-en/.content</destination>
+			<type>content_folder</type>
+			<uuidstructure>f5652ad6-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<datelastmodified>Thu, 17 Jan 2013 14:05:33 GMT</datelastmodified>
+			<userlastmodified>Admin</userlastmodified>
+			<datecreated>Thu, 17 Jan 2013 14:05:33 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties/>
@@ -105,21 +221,17 @@
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/.content/.config</source>
-			<destination>sites/default/.content/.config</destination>
+			<source>portal-en/.content/.config</source>
+			<destination>portal-en/.content/.config</destination>
 			<type>sitemap_config</type>
-			<uuidstructure>460931ab-56ab-11e2-9980-7f078ec0cbdf</uuidstructure>
-			<uuidresource>460931ac-56ab-11e2-9980-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Wed, 27 Apr 2011 15:09:24 GMT</datelastmodified>
+			<uuidstructure>f57111b8-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f57111b9-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Tue, 11 Sep 2012 09:26:04 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:13:58 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:05:33 GMT</datecreated>
 			<usercreated>Admin</usercreated>
-			<flags>512</flags>
+			<flags>0</flags>
 			<properties>
-				<property>
-					<name>Title</name>
-					<value><![CDATA[Resource type configuration]]></value>
-				</property>
 				<property>
 					<name>locale</name>
 					<value><![CDATA[en]]></value>
@@ -137,12 +249,12 @@
 			<accesscontrol/>
 		</file>
 		<file>
-			<destination>sites/default/.content/article</destination>
+			<destination>portal-en/.content/portlets</destination>
 			<type>folder</type>
-			<uuidstructure>cd4da4a9-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:45 GMT</datelastmodified>
+			<uuidstructure>933c456a-60af-11e2-acd1-4d825bfb872d</uuidstructure>
+			<datelastmodified>Thu, 17 Jan 2013 14:09:58 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:45 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:09:58 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties/>
@@ -150,14 +262,14 @@
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/.content/article/a_00001.html</source>
-			<destination>sites/default/.content/article/a_00001.html</destination>
-			<type>v8article</type>
-			<uuidstructure>dec53a49-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<uuidresource>dec53a4a-56ab-11e2-a0c2-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Fri, 04 Jan 2013 20:18:15 GMT</datelastmodified>
+			<source>portal-en/.content/portlets/p_00001.html</source>
+			<destination>portal-en/.content/portlets/p_00001.html</destination>
+			<type>v8portlet</type>
+			<uuidstructure>9347900c-60af-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>9347900d-60af-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Thu, 17 Jan 2013 14:10:07 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:18:15 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:09:58 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties/>
@@ -165,275 +277,114 @@
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/.content/article/a_00002.html</source>
-			<destination>sites/default/.content/article/a_00002.html</destination>
-			<type>v8article</type>
-			<uuidstructure>f29abe0b-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<uuidresource>f29abe0c-56ab-11e2-a0c2-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Fri, 04 Jan 2013 20:19:36 GMT</datelastmodified>
+			<source>portal-en/.content/portlets/p_00002.html</source>
+			<destination>portal-en/.content/portlets/p_00002.html</destination>
+			<type>v8portlet</type>
+			<uuidstructure>a6a6843e-60af-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>a6a6843f-60af-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Thu, 17 Jan 2013 14:10:38 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:18:48 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:10:30 GMT</datecreated>
+			<usercreated>Admin</usercreated>
+			<flags>0</flags>
+			<properties/>
+			<relations/>
+			<accesscontrol/>
+		</file>
+		<file>
+			<source>portal-en/.content/portlets/p_00003.html</source>
+			<destination>portal-en/.content/portlets/p_00003.html</destination>
+			<type>v8portlet</type>
+			<uuidstructure>b6484960-60af-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>b6484961-60af-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Thu, 17 Jan 2013 14:11:07 GMT</datelastmodified>
+			<userlastmodified>Admin</userlastmodified>
+			<datecreated>Thu, 17 Jan 2013 14:10:56 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties>
 				<property>
 					<name>Title</name>
-					<value><![CDATA[Lorem ipsum dolor sit]]></value>
+					<value><![CDATA[Heise Newsticker]]></value>
 				</property>
 			</properties>
 			<relations/>
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/.content/article/a_00003.html</source>
-			<destination>sites/default/.content/article/a_00003.html</destination>
-			<type>v8article</type>
-			<uuidstructure>46194bb1-56ad-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<uuidresource>46194bb2-56ad-11e2-a0c2-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Fri, 04 Jan 2013 20:29:05 GMT</datelastmodified>
+			<destination>portal-en/.content/textblock</destination>
+			<type>folder</type>
+			<uuidstructure>19654e92-60b6-11e2-bd92-4d825bfb872d</uuidstructure>
+			<datelastmodified>Thu, 17 Jan 2013 14:56:40 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:28:18 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:56:40 GMT</datecreated>
+			<usercreated>Admin</usercreated>
+			<flags>0</flags>
+			<properties/>
+			<relations/>
+			<accesscontrol/>
+		</file>
+		<file>
+			<source>portal-en/.content/textblock/t_00004.html</source>
+			<destination>portal-en/.content/textblock/t_00004.html</destination>
+			<type>v8textblock</type>
+			<uuidstructure>c5d0f90b-77fe-11e0-be13-000c2972a6a4</uuidstructure>
+			<uuidresource>c5d0f90c-77fe-11e0-be13-000c2972a6a4</uuidresource>
+			<datelastmodified>Thu, 17 Jan 2013 14:54:46 GMT</datelastmodified>
+			<userlastmodified>Admin</userlastmodified>
+			<datecreated>Fri, 06 Jul 2012 16:34:54 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties>
 				<property>
 					<name>Title</name>
-					<value><![CDATA[Demo Portal Login Page]]></value>
+					<value><![CDATA[Wonderful World of Portlets]]></value>
 				</property>
 			</properties>
 			<relations/>
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/.content/article/a_00004.html</source>
-			<destination>sites/default/.content/article/a_00004.html</destination>
-			<type>v8article</type>
-			<uuidstructure>ac2bb83c-572c-11e2-956f-7f078ec0cbdf</uuidstructure>
-			<uuidresource>ac2bb83d-572c-11e2-956f-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Sat, 05 Jan 2013 11:40:15 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Sat, 05 Jan 2013 11:40:15 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<source>sites/default/.content/article/a_00005.html</source>
-			<destination>sites/default/.content/article/a_00005.html</destination>
-			<type>v8article</type>
-			<uuidstructure>e2808f86-575c-11e2-956f-7f078ec0cbdf</uuidstructure>
-			<uuidresource>e2808f87-575c-11e2-956f-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Sat, 05 Jan 2013 17:25:22 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Sat, 05 Jan 2013 17:25:22 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/config</destination>
+			<destination>portal-en/portal-start</destination>
 			<type>folder</type>
-			<uuidstructure>cda9f483-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
+			<uuidstructure>f8741816-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<datelastmodified>Thu, 17 Jan 2013 14:08:37 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/event</destination>
-			<type>folder</type>
-			<uuidstructure>cd78100b-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/groupcontainer</destination>
-			<type>folder</type>
-			<uuidstructure>cdb89a87-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/infobox</destination>
-			<type>folder</type>
-			<uuidstructure>cda2c891-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/list</destination>
-			<type>folder</type>
-			<uuidstructure>cdb0f965-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/news</destination>
-			<type>folder</type>
-			<uuidstructure>cd924ecd-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/.content/twitter</destination>
-			<type>folder</type>
-			<uuidstructure>cd9b768f-56ab-11e2-a0c2-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Fri, 04 Jan 2013 20:17:46 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 20:17:46 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties/>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<destination>sites/default/Portal</destination>
-			<type>folder</type>
-			<uuidstructure>c106b26c-575e-11e2-956f-7f078ec0cbdf</uuidstructure>
-			<datelastmodified>Sat, 05 Jan 2013 17:38:55 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Sat, 05 Jan 2013 17:38:45 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:05:38 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties>
 				<property>
 					<name>NavPos</name>
-					<value><![CDATA[4.0]]></value>
+					<value><![CDATA[5.0]]></value>
 				</property>
 				<property>
 					<name>NavText</name>
-					<value><![CDATA[OpenCms Portal]]></value>
+					<value><![CDATA[Wonderful World of Portals]]></value>
 				</property>
 				<property>
 					<name>Title</name>
-					<value><![CDATA[Start]]></value>
+					<value><![CDATA[Wonderful World of Portals]]></value>
 				</property>
 			</properties>
 			<relations/>
 			<accesscontrol/>
 		</file>
 		<file>
-			<source>sites/default/Portal/addressbook.html</source>
-			<destination>sites/default/Portal/addressbook.html</destination>
+			<source>portal-en/portal-start/index.html</source>
+			<destination>portal-en/portal-start/index.html</destination>
 			<type>containerpage</type>
-			<uuidstructure>eb42ec3c-575e-11e2-956f-7f078ec0cbdf</uuidstructure>
-			<uuidresource>eb42ec3d-575e-11e2-956f-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Sat, 05 Jan 2013 17:40:07 GMT</datelastmodified>
+			<uuidstructure>f87acedb-60ae-11e2-acd1-4d825bfb872d</uuidstructure>
+			<uuidresource>f87acedc-60ae-11e2-acd1-4d825bfb872d</uuidresource>
+			<datelastmodified>Thu, 17 Jan 2013 14:55:37 GMT</datelastmodified>
 			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Sat, 05 Jan 2013 17:39:56 GMT</datecreated>
+			<datecreated>Thu, 17 Jan 2013 14:05:38 GMT</datecreated>
 			<usercreated>Admin</usercreated>
 			<flags>0</flags>
 			<properties>
 				<property>
-					<name>NavPos</name>
-					<value><![CDATA[1.5]]></value>
-				</property>
-				<property>
-					<name>NavText</name>
-					<value><![CDATA[Addressbook]]></value>
-				</property>
-				<property>
 					<name>Title</name>
-					<value><![CDATA[Addressbook]]></value>
-				</property>
-			</properties>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<source>sites/default/Portal/index.html</source>
-			<destination>sites/default/Portal/index.html</destination>
-			<type>containerpage</type>
-			<uuidstructure>1b44d95c-569c-11e2-9980-7f078ec0cbdf</uuidstructure>
-			<uuidresource>1b44d95d-569c-11e2-9980-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Sat, 05 Jan 2013 11:43:05 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Fri, 04 Jan 2013 18:25:24 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties>
-				<property>
-					<name>NavPos</name>
-					<value><![CDATA[0.5]]></value>
-				</property>
-				<property>
-					<name>NavText</name>
-					<value><![CDATA[Start]]></value>
-				</property>
-				<property>
-					<name>Title</name>
-					<value><![CDATA[Opencms Portal]]></value>
-				</property>
-				<property>
-					<name>template</name>
-					<value><![CDATA[/system/modules/de.eonas.portaldemo.templates/templates/Einspaltig.jsp]]></value>
-				</property>
-			</properties>
-			<relations/>
-			<accesscontrol/>
-		</file>
-		<file>
-			<source>sites/default/Portal/pluto.html</source>
-			<destination>sites/default/Portal/pluto.html</destination>
-			<type>containerpage</type>
-			<uuidstructure>fb29f7c1-575e-11e2-956f-7f078ec0cbdf</uuidstructure>
-			<uuidresource>fb29f7c2-575e-11e2-956f-7f078ec0cbdf</uuidresource>
-			<datelastmodified>Sat, 05 Jan 2013 17:40:35 GMT</datelastmodified>
-			<userlastmodified>Admin</userlastmodified>
-			<datecreated>Sat, 05 Jan 2013 17:40:22 GMT</datecreated>
-			<usercreated>Admin</usercreated>
-			<flags>0</flags>
-			<properties>
-				<property>
-					<name>NavPos</name>
-					<value><![CDATA[2.5]]></value>
-				</property>
-				<property>
-					<name>NavText</name>
-					<value><![CDATA[Pluto Portal]]></value>
-				</property>
-				<property>
-					<name>Title</name>
-					<value><![CDATA[Pluto Portal]]></value>
+					<value><![CDATA[Wonderful World of Portlets]]></value>
 				</property>
 			</properties>
 			<relations/>
