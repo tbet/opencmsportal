@@ -5,6 +5,16 @@
     <formats>
         <format>zip</format>
     </formats>
+    <files>
+        <file>
+            <source>src/main/assembly/log4j.xml</source>
+            <outputDirectory>/lib/</outputDirectory>
+        </file>
+        <file>
+            <source>src/main/assembly/setenv.sh</source>
+            <outputDirectory>/bin</outputDirectory>
+        </file>
+    </files>
     <fileSets>
         <fileSet>
             <directory>target/apache-tomcat-6.0.36</directory>
@@ -16,13 +26,6 @@
                 <exclude>webapps/docs/**</exclude>
                 <exclude>webapps/ROOT/**</exclude>
             </excludes>
-        </fileSet>
-        <fileSet>
-            <directory>src/main/assembly</directory>
-            <outputDirectory>/bin</outputDirectory>
-            <includes>
-                <include>setenv.sh</include>
-            </includes>
         </fileSet>
     </fileSets>
     <dependencySets>

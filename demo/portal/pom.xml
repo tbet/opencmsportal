@@ -44,6 +44,13 @@
             <classifier>opencms-module</classifier>
         </dependency>
         <dependency>
+            <groupId>de.eonas.portal.demo</groupId>
+            <artifactId>content</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>zip</type>
+            <classifier>opencms-module</classifier>
+        </dependency>
+        <dependency>
             <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsportal</artifactId>
             <version>8.5.0-SNAPSHOT</version>
