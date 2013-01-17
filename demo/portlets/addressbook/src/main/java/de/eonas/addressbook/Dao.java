@@ -85,7 +85,7 @@ public class Dao<T extends LdapSelectableData> {
         p.setStreet("Pascalstraße 10a");
         p.setDisplayName("Helmut Manck");
         p.setC("Germany");
-        p.setO("eonas IT-Bertung");
+        p.setO("eonas IT-Beratung GmbH");
         p.setL("Berlin");
         p.setPostalCode("10587");
         p.setDn("" + System.currentTimeMillis());
