@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
+import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 import org.opencms.main.CmsShell;
 import org.opencms.module.CmsModule;
 import org.opencms.setup.CmsSetupDb;
@@ -127,6 +129,8 @@ public class Installer {
 		Bean.prepareStep8();
 		Bean.prepareStep10();
 
+
+
 		CmsShell shell = new CmsShell(Bean.getWebAppRfsPath() + "WEB-INF"
 				+ File.separator, Bean.getServletMapping(),
 				Bean.getDefaultWebApplication(), "${user}@${project}>", Bean);
@@ -134,6 +138,7 @@ public class Installer {
 		shell.start(new FileInputStream(new File(Bean.getWebAppRfsPath()
 				+ CmsSetupDb.SETUP_DATA_FOLDER + "cmssetup.txt")));
 
+        System.exit(0);
 	}
 
 	private static String resolveSelectedModules(String opencmsbasedir)
