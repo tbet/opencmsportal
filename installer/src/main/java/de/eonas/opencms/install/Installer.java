@@ -1,28 +1,20 @@
 package de.eonas.opencms.install;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.DriverManager;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
-
-import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 import org.opencms.main.CmsShell;
 import org.opencms.module.CmsModule;
 import org.opencms.setup.CmsSetupDb;
 import org.opencms.setup.comptest.CmsSetupTestResult;
 import org.opencms.util.CmsStringUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Installer {
 	private static final String COMPONENT = "component.";
