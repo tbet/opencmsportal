@@ -24,7 +24,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <!-- pluto kommt mit jstl 1.2, dadurch kommt es zum konflikt -->
-                    <packagingExcludes>WEB-INF/lib/standard-1.1.2.jar,WEB-INF/lib/jstl-1.1.2.jar</packagingExcludes>
+                    <packagingExcludes>WEB-INF/lib/standard-1.1.2.jar,WEB-INF/lib/jstl-1.1.2.jar,WEB-INF/lib/slf4j-api-1.6.1.jar</packagingExcludes>
                 </configuration>
             </plugin>
 
