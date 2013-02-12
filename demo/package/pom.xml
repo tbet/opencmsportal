@@ -10,7 +10,7 @@
 
     <groupId>de.eonas.portal.demo</groupId>
     <artifactId>package</artifactId>
-    <version>8.5.0-SNAPSHOT</version>
+    <version>8.5.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Portal based on OpenCMs</name>
     <description>TarGz with examples and tomcat</description>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>de.eonas.portal.demo</groupId>
             <artifactId>portal</artifactId>
-            <version>8.5.0-SNAPSHOT</version>
+            <version>8.5.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
         <dependency>
