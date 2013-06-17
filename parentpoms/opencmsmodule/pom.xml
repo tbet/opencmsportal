@@ -4,14 +4,14 @@
 	<artifactId>opencmsmodule</artifactId>
 	<groupId>de.eonas.portal.parentpoms</groupId>
 	<packaging>pom</packaging>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<name>OpenCmsParentModule</name>
 	<description>Parent Pom.xml for OpenCms Modules</description>
 
 	<parent>
 		<groupId>de.eonas.portal.parentpoms</groupId>
 		<artifactId>root</artifactId>
-		<version>1.0</version>
+		<version>1.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	

@@ -6,12 +6,12 @@
 	<artifactId>portlet</artifactId>
 	<packaging>pom</packaging>
 	<name>Primefaces Portlet Parent Pom</name>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 
 	<parent>
 		<groupId>de.eonas.portal.parentpoms</groupId>
 		<artifactId>webapp</artifactId>
-		<version>1.0</version>
+		<version>1.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
