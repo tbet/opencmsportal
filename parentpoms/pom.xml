@@ -92,8 +92,8 @@
     </reporting>
 
     <scm>
-        <connection>scm:git:git@github.com/eonas/opencmsportal.git</connection>
-        <developerConnection>scm:git:git@github.com/eonas/opencmsportal.git</developerConnection>
+        <connection>scm:git:git@github.com:eonas/opencmsportal.git</connection>
+        <developerConnection>scm:git:git@github.com:eonas/opencmsportal.git</developerConnection>
         <url>https://github.com/eonas/opencmsportal.git</url>
     </scm>
 
