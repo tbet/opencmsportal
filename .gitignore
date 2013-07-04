@@ -3,3 +3,4 @@
 .settings
 overlays
 target
+*.log
