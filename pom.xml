@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.eonas.portal</groupId>
     <artifactId>opencmsportal</artifactId>
-    <version>8.5.1.3-SNAPSHOT</version>
+    <version>8.5.2.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>OpenCms with Pluto Portal 2 extensions</name>
 
@@ -13,7 +13,7 @@
     </parent>
 
     <properties>
-        <opencms.version>8.5.1</opencms.version>
+        <opencms.version>8.5.2</opencms.version>
     </properties>
 
     <build>
