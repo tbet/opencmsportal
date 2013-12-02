@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.eonas.portal</groupId>
     <artifactId>opencmsportal</artifactId>
-    <version>8.5.2.1-SNAPSHOT</version>
+    <version>9.0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>OpenCms with Pluto Portal 2 extensions</name>
 
@@ -13,7 +13,7 @@
     </parent>
 
     <properties>
-        <opencms.version>8.5.2</opencms.version>
+        <opencms.version>9.0.0</opencms.version>
     </properties>
 
     <build>
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsmoduleswar</artifactId>
-            <version>8.5.2.1-SNAPSHOT</version>
+            <version>9.0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
         <dependency>
@@ -95,12 +95,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--
         <dependency>
             <groupId>org.opencms</groupId>
             <artifactId>opencms-webapp</artifactId>
             <version>${opencms.version}</version>
             <type>war</type>
         </dependency>
+        -->
+
         <dependency>
             <groupId>fr.xebia.web</groupId>
             <artifactId>xebia-servlet-extras</artifactId>
