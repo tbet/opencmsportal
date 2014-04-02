@@ -200,7 +200,7 @@ limitations under the License.
   <!-- Container Services injected into  Configuration  -->
   <!-- ================================================ -->
   <bean id="PortletRequestContextService"
-        class="org.apache.pluto.driver.services.container.PortletRequestContextServiceImpl"
+        class="de.eonas.opencms.PortletRequestContextService"
         singleton="true">
   </bean>
   <bean id="EventCoordinationService"
