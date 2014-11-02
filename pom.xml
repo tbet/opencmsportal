@@ -54,7 +54,7 @@
         <dependency>
             <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsportaldriver</artifactId>
-            <version>9.0.0.3</version>
+            <version>9.0.0.4</version>
             <exclusions>
                 <exclusion>
                     <artifactId>activation</artifactId>
