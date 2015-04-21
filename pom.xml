@@ -48,7 +48,7 @@
         <dependency>
             <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsmoduleswar</artifactId>
-            <version>9.0.0.1</version>
+            <version>9.0.0.2</version>
             <type>war</type>
         </dependency>
         <dependency>
