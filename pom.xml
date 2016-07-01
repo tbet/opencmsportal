@@ -13,7 +13,7 @@
     </parent>
 
     <properties>
-        <opencms.version>9.5.2</opencms.version>
+        <opencms.version>10.0.1</opencms.version>
     </properties>
 
     <build>

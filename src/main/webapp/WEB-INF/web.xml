@@ -46,6 +46,11 @@
         <param-value>ROOT</param-value>
     </context-param>    
     
+	<context-param>
+               <description>Vaadin production mode</description>
+               <param-name>productionMode</param-name>
+               <param-value>true</param-value>
+	</context-param>
 	<!-- 
 	    Uncomment this parameter in case you change the web application context using an application server 
 	    specific deployment descriptor. E.g. in Jboss, you could use the jboss-web.xml file to deploy opencms under the
@@ -76,6 +81,43 @@
     <listener>
         <listener-class>org.opencms.main.OpenCmsListener</listener-class>
     </listener>
+
+       <servlet>
+               <description>
+             The servlet that handles all workplace UI requests.  
+         </description>
+               <servlet-name>CmsUIServlet</servlet-name>
+               <servlet-class>org.opencms.main.CmsUIServlet</servlet-class>
+               <init-param>
+                       <param-name>UI</param-name>
+                       <param-value>org.opencms.ui.apps.CmsAppWorkplaceUi</param-value>
+               </init-param>
+               <init-param>
+                       <description>Widget Set to Use</description>
+                       <param-name>widgetset</param-name>
+                       <param-value>org.opencms.ui.WidgetSet</param-value>
+               </init-param>
+               <init-param>
+                       <param-name>heartbeatInterval</param-name>
+                       <param-value>60</param-value>
+               </init-param>
+       </servlet>
+ 
+       <servlet>
+               <description>
+             Error servlet.
+         </description>
+               <servlet-name>CmsErrorServlet</servlet-name>
+               <servlet-class>org.opencms.main.CmsUIServlet</servlet-class>
+               <init-param>
+                       <param-name>UI</param-name>
+                       <param-value>org.opencms.ui.error.CmsErrorUI</param-value>
+               </init-param>
+               <init-param>
+                       <param-name>widgetset</param-name>
+                       <param-value>org.opencms.ui.WidgetSet</param-value>
+               </init-param>
+       </servlet>
         
     <servlet>
         <description>
@@ -101,6 +143,21 @@
     </servlet-mapping>
     
     <servlet-mapping>
+               <servlet-name>CmsErrorServlet</servlet-name>
+               <url-pattern>/workplace/errorpage/*</url-pattern>
+       </servlet-mapping>
+ 
+       <servlet-mapping>
+               <servlet-name>CmsUIServlet</servlet-name>
+               <url-pattern>/workplace/*</url-pattern>
+       </servlet-mapping>
+ 
+       <servlet-mapping>
+               <servlet-name>CmsUIServlet</servlet-name>
+               <url-pattern>/VAADIN/*</url-pattern>
+       </servlet-mapping>
+ 
+       <servlet-mapping>
         <servlet-name>OpenCmsServletErrorHandler</servlet-name>
         <url-pattern>/opencms-errorhandler/*</url-pattern>
     </servlet-mapping>    
