@@ -83,21 +83,25 @@
 		to "/mycms-errorhandler/handle404" 3. Change the <error-page> setting for 
 		the 500 error from "/opencms-errorhandler/system/handler/handle500.html" 
 		to "/mycms-errorhandler/system/handler/handle500.html" -->
-
+	
+	<!-- ich habe in der "opencms-importexport.xml" den Eintrag "<vfs-prefix>${CONTEXT_NAME}</vfs-prefix>" auf "<vfs-prefix>${CONTEXT_NAME}${SERVLET_NAME}</vfs-prefix>" geändert. 
+	Bisher hat der Aufruf „/cms“ funktioniert. Jetzt muss noch ein weiteres Slash hinzu, dann funktioniert auch der Aufruf „/cms/“.
+	Wenn du den ${Servlet_Name} mit dazu tust, empfiehlt es sich, den "OpenCmsUrlServletFilter" aus der web.xml zu entfernen? Wenn du den + sein Mapping rausnimmst, sollte der Zugriff via /cms und /cms/ wieder gehen.
 	<filter>
 		<filter-name>OpenCmsUrlServletFilter</filter-name>
 		<filter-class>org.opencms.main.OpenCmsUrlServletFilter</filter-class>
-		<!-- Use the init-param to prevent rewriting for URI that start with the provided prefixes
+		Start:Use the init-param to prevent rewriting for URI that start with the provided prefixes
 		<init-param>
 			<param-name>additionalExcludePrefixes</param-name>
 			<param-value>/my-servlet-1|/my-servlet-2</param-value>
 		</init-param>
-		 -->
+		 End:
 	</filter>
 	<filter-mapping>
 		<filter-name>OpenCmsUrlServletFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	 -->
 
 	<context-param>
 		<param-name>OpenCmsServlet</param-name>
