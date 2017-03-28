@@ -2,18 +2,18 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.eonas.portal</groupId>
     <artifactId>opencmsportal</artifactId>
-    <version>9.0.0.9-SNAPSHOT</version>
+    <version>10.5.1</version>
     <packaging>war</packaging>
     <name>OpenCms with Pluto Portal 2 extensions</name>
 
     <parent>
         <groupId>de.eonas.portal.parentpoms</groupId>
         <artifactId>opencmswebapp</artifactId>
-        <version>1.1</version>
+        <version>1.2-SNAPSHOT</version>
     </parent>
 
     <properties>
-        <opencms.version>9.0.0</opencms.version>
+        <opencms.version>10.5.1</opencms.version>
     </properties>
 
     <build>
@@ -43,18 +43,12 @@
         <dependency>
             <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsinstaller</artifactId>
-            <version>9.0.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>de.eonas.portal</groupId>
-            <artifactId>opencmsmoduleswar</artifactId>
-            <version>9.0.0.1</version>
-            <type>war</type>
+            <version>10.5.0</version>
         </dependency>
         <dependency>
             <groupId>de.eonas.portal</groupId>
             <artifactId>opencmsportaldriver</artifactId>
-            <version>9.0.0.7</version>
+            <version>10.5.0</version>
             <exclusions>
                 <exclusion>
                     <artifactId>activation</artifactId>
@@ -76,6 +70,10 @@
                     <groupId>commons-io</groupId>
                     <artifactId>commons-io</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -83,6 +81,12 @@
             <artifactId>ehcache-core</artifactId>
             <version>2.4.7</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>de.eonas.portal</groupId>
@@ -96,14 +100,12 @@
             </exclusions>
         </dependency>
 
-        <!--
         <dependency>
             <groupId>org.opencms</groupId>
             <artifactId>opencms-webapp</artifactId>
             <version>${opencms.version}</version>
             <type>war</type>
         </dependency>
-        -->
 
         <dependency>
             <groupId>fr.xebia.web</groupId>

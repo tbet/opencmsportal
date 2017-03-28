@@ -1,6 +1,8 @@
 *.iml
 .idea
 .settings
+.classpath
+.project
 overlays
 target
 *.log
